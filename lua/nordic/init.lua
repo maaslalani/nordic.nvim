@@ -5,8 +5,27 @@ local M = {}
 
 local default_opts = {
     underline_option = 'none',
-    italic = true,
-    italic_comments = false,
+    italics = {
+        enabled = true,
+        attributes = false,
+        builtins = true,
+        comments = false,
+        constructors = true,
+        conditionals = true,
+        defines = false,
+        emphasis = true,
+        exceptions = false,
+        fields = false,
+        functions = true,
+        includes = false,
+        keywords = false,
+        labels = true,
+        parameters = true,
+        properties = false,
+        repeats = true,
+        types = false,
+        variables = false,
+    },
     minimal_mode = false,
     alternate_backgrounds = false,
     custom_colors = function()
@@ -51,7 +70,7 @@ local function create_options(config)
         global_opts[k] = vim.g['nord_' .. k]
     end
 
-    return vim.tbl_extend('force', default_opts, global_opts, module_opts)
+    return vim.tbl_deep_extend('force', default_opts, global_opts, module_opts)
 end
 
 local function create_alternatives(options)
@@ -83,8 +102,24 @@ local function create_arguments(options, alternatives)
 
     local cs = {
         underline = options.underline_option and s[options.underline_option] or s.none,
-        italic = (options.italic == true or options.italic == nil) and s.italic or s.none,
-        comments = options.italic_comments and s.italic or s.none,
+        attributes = (options.italics.enabled and options.italics.attributes) and s.italic or s.none,
+        builtins = (options.italics.enabled and options.italics.builtins) and s.italic or s.none,
+        comments = (options.italics.enabled and options.italics.comments) and s.italic or s.none,
+        conditionals = (options.italics.enabled and options.italics.conditionals) and s.italic or s.none,
+        constructors = (options.italics.enabled and options.italics.constructors) and s.italic or s.none,
+        defines = (options.italics.enabled and options.italics.defines) and s.italic or s.none,
+        emphasis = (options.italics.enabled and options.italics.emphasis) and s.italic or s.none,
+        exceptions = (options.italics.enabled and options.italics.exceptions) and s.italic or s.none,
+        functions = (options.italics.enabled and options.italics.functions) and s.italic or s.none,
+        fields = (options.italics.enabled and options.italics.fields) and s.italic or s.none,
+        includes = (options.italics.enabled and options.italics.includes) and s.italic or s.none,
+        keywords = (options.italics.enabled and options.italics.keywords) and s.italic or s.none,
+        labels = (options.italics.enabled and options.italics.labels) and s.italic or s.none,
+        parameters = (options.italics.enabled and options.italics.parameters) and s.italic or s.none,
+        properties = (options.italics.enabled and options.italics.properties) and s.italic or s.none,
+        repeats = (options.italics.enabled and options.italics.repeats) and s.italic or s.none,
+        types = (options.italics.enabled and options.italics.types) and s.italic or s.none,
+        variables = (options.italics.enabled and options.italics.variables) and s.italic or s.none,
         bg = function(name)
             local found = vim.tbl_contains(alternatives.extensions, name)
             return found and palette.dark_black_alt or palette.dark_black

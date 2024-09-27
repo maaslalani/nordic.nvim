@@ -33,12 +33,29 @@ use {
             -- Options: 'none', 'underline', 'undercurl'
             underline_option = 'none',
 
-            -- Italics for certain keywords such as constructors, functions,
-            -- labels and namespaces
-            italic = true,
-
-            -- Italic styled comments
-            italic_comments = false,
+            -- Italics
+            italics = {
+                enabled = true, -- Enable/disable italics
+                -- Gradually enable/disable italics for certain keywords
+                attributes = false,
+                builtins = true,
+                comments = false,
+                constructors = true,
+                conditionals = true,
+                defines = false,
+                emphasis = true,
+                exceptions = false,
+                fields = false,
+                functions = true,
+                includes = false,
+                keywords = false,
+                labels = true,
+                parameters = true,
+                properties = false,
+                repeats = true,
+                types = false,
+                variables = false,
+            },
 
             -- Minimal mode: different choice of colors for Tabs and StatusLine
             minimal_mode = false,
