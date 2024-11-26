@@ -48,6 +48,9 @@ use {
             -- Supported: terminal, qf, vista_kind, packer, nvim-tree, telescope, whichkey
             alternate_backgrounds = false,
 
+            -- Or make all backgrounds transparent
+            transparent_backgrounds = false,
+
             -- Callback function to define custom color groups
             -- See 'lua/nordic/colors/example.lua' for example defitions
             custom_colors = function(c, s, cs)
@@ -76,7 +79,8 @@ require('nordic').colorscheme({
     italic = true,
     italic_comments = false,
     minimal_mode = false,
-    alternate_backgrounds = false
+    alternate_backgrounds = false,
+    transparent_backgrounds = false,
 })
 ```
 
@@ -88,6 +92,7 @@ vim.g.nord_italic = true
 vim.g.nord_italic_comments = false
 vim.g.nord_minimal_mode = false
 vim.g.nord_alternate_backgrounds = false
+vim.g.nord_transparent_backgrounds = false
 vim.cmd('colorscheme nordic')
 ```
 
@@ -99,6 +104,7 @@ let g:nord_italic = v:true
 let g:nord_italic_comments = v:false
 let g:nord_minimal_mode = v:false
 let g:nord_alternate_backgrounds = v:false
+let g:nord_transparent_backgrounds = v:false
 colorscheme nordic
 ```
 

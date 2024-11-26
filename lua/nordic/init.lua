@@ -9,6 +9,7 @@ local default_opts = {
     italic_comments = false,
     minimal_mode = false,
     alternate_backgrounds = false,
+    transparent_backgrounds = false,
     custom_colors = function()
         return {}
     end,
@@ -85,7 +86,12 @@ local function create_arguments(options, alternatives)
         underline = options.underline_option and s[options.underline_option] or s.none,
         italic = (options.italic == true or options.italic == nil) and s.italic or s.none,
         comments = options.italic_comments and s.italic or s.none,
+        bg_normal = options.transparent_backgrounds == false and palette.dark_black or s.none,
+        bg_normal_alt = options.transparent_backgrounds == false and palette.dark_black_alt or s.none,
         bg = function(name)
+            if options.transparent_backgrounds then
+                return s.none
+            end
             local found = vim.tbl_contains(alternatives.extensions, name)
             return found and palette.dark_black_alt or palette.dark_black
         end,

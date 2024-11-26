@@ -8,8 +8,8 @@ return function(c, s, cs, opts)
         { 'LineNr', c.gray },
         { 'MatchParen', c.bright_cyan, c.gray },
         { 'NonText', c.bright_black },
-        { 'Normal', c.dark_white, c.dark_black },
-        { 'NormalAlt', c.dark_white, c.dark_black_alt },
+        { 'Normal', c.dark_white, cs.bg_normal },
+        { 'NormalAlt', c.dark_white, cs.bg_normal_alt },
         { 'PMenu', c.dark_white, c.bright_black },
         { 'PmenuSbar', c.dark_white, c.bright_black },
         { 'PMenuSel', c.bright_cyan, c.gray, s.bold },
@@ -39,10 +39,10 @@ return function(c, s, cs, opts)
         --- Gutter ---
         { 'CursorColumn', c.none, c.black },
         { 'CursorLineNr', c.dark_white, c.black },
-        { 'Folded', c.gray, c.dark_black },
-        { 'FoldColumn', c.gray, c.dark_black },
-        { 'SignColumn', c.black, c.dark_black },
-        { 'SignColumnAlt', c.black, c.dark_black_alt },
+        { 'Folded', c.gray, cs.bg_normal },
+        { 'FoldColumn', c.gray, cs.bg_normal },
+        { 'SignColumn', c.black, cs.bg_normal },
+        { 'SignColumnAlt', c.black, cs.bg_normal_alt },
         -- Navigation ---
         { 'Directory', c.bright_cyan },
         --- Prompt/Status ---
@@ -68,17 +68,17 @@ return function(c, s, cs, opts)
                     --- Editor---
                     { 'CursorLine', c.none, c.darkish_black },
                     { 'NormalFloat', c.white, c.none },
-                    { 'FloatBorder', c.grayish, c.dark_black },
-                    { 'FloatTitle', c.grayish, c.dark_black },
+                    { 'FloatBorder', c.grayish, cs.bg_normal },
+                    { 'FloatTitle', c.grayish, cs.bg_normal },
                     --- Prompt/Status ---
-                    { 'StatusLine', c.dark_white, c.dark_black },
-                    { 'StatusLineNC', c.grayish, c.dark_black },
-                    { 'StatusLineTerm', c.dark_white, c.dark_black },
-                    { 'StatusLineTermNC', c.grayish, c.dark_black },
+                    { 'StatusLine', c.dark_white, cs.bg_normal },
+                    { 'StatusLineNC', c.grayish, cs.bg_normal },
+                    { 'StatusLineTerm', c.dark_white, cs.bg_normal },
+                    { 'StatusLineTermNC', c.grayish, cs.bg_normal },
                     --- Tabs ---
-                    { 'TabLine', c.grayish, c.dark_black },
-                    { 'TabLineFill', c.grayish, c.dark_black },
-                    { 'TabLineSel', c.bright_white, c.dark_black },
+                    { 'TabLine', c.grayish, cs.bg_normal },
+                    { 'TabLineFill', c.grayish, cs.bg_normal },
+                    { 'TabLineSel', c.bright_white, cs.bg_normal },
                 }
             end
 
@@ -86,8 +86,8 @@ return function(c, s, cs, opts)
                 --- Editor---
                 { 'NormalFloat', c.white, c.black },
                 { 'CursorLine', c.none, c.black },
-                { 'FloatBorder', c.black, c.dark_black },
-                { 'FloatTitle', c.grayish, c.dark_black },
+                { 'FloatBorder', c.black, cs.bg_normal },
+                { 'FloatTitle', c.grayish, cs.bg_normal },
                 --- Prompt/Status ---
                 { 'StatusLine', c.bright_cyan, c.gray },
                 { 'StatusLineNC', c.dark_white, c.black },
